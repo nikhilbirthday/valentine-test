@@ -1,3 +1,4 @@
+/* 🌼 Global styles */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -8,6 +9,7 @@ body {
   min-height: 100vh;
 }
 
+/* 💛 Card container */
 .card {
   background: #fff;
   padding: 30px;
@@ -18,6 +20,7 @@ body {
   text-align: center;
 }
 
+/* ✨ Headings & text */
 h1 {
   color: #f4a261;
 }
@@ -26,6 +29,7 @@ p {
   color: #555;
 }
 
+/* 🌼 Buttons */
 button {
   display: block;
   width: 100%;
@@ -36,39 +40,29 @@ button {
   background: #fde68a;
   font-size: 16px;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 button:hover {
   background: #fcd34d;
 }
 
+/* ❌ Try again text */
 .try-again {
   color: #e76f51;
   margin-top: 10px;
 }
-@keyframes fall {
-  to {
-    transform: translateY(100vh);
-    opacity: 0;
-  }
-}
+
+/* 🎉 Emoji confetti */
 .confetti {
   position: fixed;
   font-size: 22px;
-  animation: popper 1.2s ease-out forwards;
   pointer-events: none;
+  user-select: none;
+  z-index: 9999;
 }
 
-@keyframes popper {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(var(--x), var(--y)) scale(0.8);
-    opacity: 0;
-  }
-}
+/* 📱 Mobile friendly */
 @media (max-width: 600px) {
   h1 {
     font-size: 1.6rem;
@@ -87,6 +81,7 @@ button:hover {
     padding: 22px;
   }
 }
+
 /* 💛 Glowing heart Easter egg */
 .glow-heart {
   font-size: 2.6rem;
@@ -105,4 +100,3 @@ button:hover {
     text-shadow: 0 0 4px #fde68a;
   }
 }
-
