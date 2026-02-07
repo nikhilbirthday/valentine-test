@@ -1,17 +1,17 @@
 function correct(nextPage) {
-  confettiBurst();
+  popperBlast(false);
 
   setTimeout(() => {
     window.location.href = nextPage;
-  }, 800);
+  }, 900);
 }
 
 function finalCorrect() {
-  finalCelebration();
+  popperBlast(true);
 
   setTimeout(() => {
     window.location.href = "result.html";
-  }, 1500);
+  }, 1600);
 }
 
 function wrong() {
@@ -19,36 +19,38 @@ function wrong() {
   msg.innerText = "Oops 👀 Try again, you should know this.";
 }
 
-/* 🌼 Small confetti for normal correct answers */
-function confettiBurst() {
-  for (let i = 0; i < 20; i++) {
-    const conf = document.createElement("div");
-    conf.innerText = "🌼";
-    conf.style.position = "fixed";
-    conf.style.left = Math.random() * 100 + "vw";
-    conf.style.top = "-20px";
-    conf.style.fontSize = "20px";
-    conf.style.animation = "fall 1s linear";
-    document.body.appendChild(conf);
+/* 🎉 Confetti popper blast */
+function popperBlast(isFinal) {
+  const emojis = isFinal
+    ? ["🎉", "💛", "✨", "🥰", "🌼"]
+    : ["🌼", "✨"];
 
-    setTimeout(() => conf.remove(), 1000);
-  }
+  const count = isFinal ? 30 : 16;
+
+  createBlast("left", emojis, count);
+  createBlast("right", emojis, count);
 }
 
-/* 🎉 Bigger celebration for final answer */
-function finalCelebration() {
-  const emojis = ["🎉", "💛", "✨", "🌼", "🥰"];
-
-  for (let i = 0; i < 40; i++) {
+function createBlast(side, emojis, count) {
+  for (let i = 0; i < count; i++) {
     const conf = document.createElement("div");
+    conf.className = "confetti";
     conf.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-    conf.style.position = "fixed";
-    conf.style.left = Math.random() * 100 + "vw";
-    conf.style.top = "-30px";
-    conf.style.fontSize = "26px";
-    conf.style.animation = "fall 1.5s linear";
+
+    conf.style.left = side === "left" ? "20px" : "calc(100vw - 40px)";
+    conf.style.bottom = "20px";
+
+    const x = side === "left"
+      ? Math.random() * 150
+      : -Math.random() * 150;
+
+    const y = -(Math.random() * 300 + 200);
+
+    conf.style.setProperty("--x", `${x}px`);
+    conf.style.setProperty("--y", `${y}px`);
+
     document.body.appendChild(conf);
 
-    setTimeout(() => conf.remove(), 1500);
+    setTimeout(() => conf.remove(), 1200);
   }
 }
