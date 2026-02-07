@@ -87,3 +87,22 @@ button:hover {
     padding: 22px;
   }
 }
+/* 💛 Glowing heart Easter egg */
+.glow-heart {
+  font-size: 2.6rem;
+  cursor: pointer;
+  animation: glow 1.8s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 4px #fde68a;
+  }
+  50% {
+    text-shadow: 0 0 12px #fcd34d, 0 0 20px #fde68a;
+  }
+  100% {
+    text-shadow: 0 0 4px #fde68a;
+  }
+}
+
