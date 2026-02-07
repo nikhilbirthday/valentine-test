@@ -46,3 +46,9 @@ button:hover {
   color: #e76f51;
   margin-top: 10px;
 }
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
