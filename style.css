@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #fff6cc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+}
+
+h1 {
+  color: #f4a261;
+}
+
+p {
+  color: #555;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 12px;
+  background: #fde68a;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #fcd34d;
+}
+
+.try-again {
+  color: #e76f51;
+  margin-top: 10px;
+}
