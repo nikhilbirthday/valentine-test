@@ -69,3 +69,21 @@ button:hover {
     opacity: 0;
   }
 }
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 1.05rem;
+  }
+
+  button {
+    font-size: 1.05rem;
+    padding: 14px;
+  }
+
+  .card {
+    padding: 22px;
+  }
+}
