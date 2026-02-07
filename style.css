@@ -52,3 +52,20 @@ button:hover {
     opacity: 0;
   }
 }
+.confetti {
+  position: fixed;
+  font-size: 22px;
+  animation: popper 1.2s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes popper {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0.8);
+    opacity: 0;
+  }
+}
