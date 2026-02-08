@@ -1,5 +1,15 @@
+// 🔊 Sound effects
+const correctSound = new Audio("sounds/correct.mp3");
+const wrongSound = new Audio("sounds/wrong.mp3");
+
+correctSound.preload = "auto";
+wrongSound.preload = "auto";
+
 // ❌ Wrong answer
 function wrong(btn) {
+    wrongSound.currentTime = 0;
+  wrongSound.play();
+
   const card = document.querySelector(".card");
   const msg = document.getElementById("msg");
 
@@ -23,6 +33,9 @@ function wrong(btn) {
 
 // ✅ Correct answers (Q1–Q4)
 function correct(nextPage, btn) {
+    correctSound.currentTime = 0;
+  correctSound.play();
+
   // Pulse correct button
   if (btn) {
     btn.classList.add("correct-btn");
@@ -38,6 +51,9 @@ function correct(nextPage, btn) {
 
 // 🎊 Final correct answer (Q5)
 function finalCorrect(btn) {
+    correctSound.currentTime = 0;
+  correctSound.play();
+
   if (btn) {
     btn.classList.add("correct-btn");
     setTimeout(() => btn.classList.remove("correct-btn"), 300);
