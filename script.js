@@ -1,6 +1,19 @@
 // ❌ Wrong answer
-function wrong() {
+function wrong(btn) {
+  const card = document.querySelector(".card");
   const msg = document.getElementById("msg");
+
+  // Shake card
+  card.classList.add("shake");
+  setTimeout(() => card.classList.remove("shake"), 300);
+
+  // Pulse wrong button
+  if (btn) {
+    btn.classList.add("wrong-btn");
+    setTimeout(() => btn.classList.remove("wrong-btn"), 300);
+  }
+
+  // Message
   if (msg) {
     msg.innerText = "Oops 👀 Try again, you should know this.";
   } else {
@@ -9,7 +22,13 @@ function wrong() {
 }
 
 // ✅ Correct answers (Q1–Q4)
-function correct(nextPage) {
+function correct(nextPage, btn) {
+  // Pulse correct button
+  if (btn) {
+    btn.classList.add("correct-btn");
+    setTimeout(() => btn.classList.remove("correct-btn"), 300);
+  }
+
   popperBlast(false);
 
   setTimeout(() => {
@@ -18,7 +37,12 @@ function correct(nextPage) {
 }
 
 // 🎊 Final correct answer (Q5)
-function finalCorrect() {
+function finalCorrect(btn) {
+  if (btn) {
+    btn.classList.add("correct-btn");
+    setTimeout(() => btn.classList.remove("correct-btn"), 300);
+  }
+
   popperBlast(true);
 
   setTimeout(() => {
@@ -32,28 +56,24 @@ function popperBlast(isFinal) {
     ? ["🎉", "💛", "✨", "🥰", "🌼"]
     : ["🌼", "✨", "💛"];
 
-  // 🔥 TRIPLED counts
   const countPerSide = isFinal ? 45 : 24;
 
   createBlast("left", emojis, countPerSide, isFinal);
   createBlast("right", emojis, countPerSide, isFinal);
 }
 
-// 🎈 Create blast from one side
 function createBlast(side, emojis, count, isFinal) {
   for (let i = 0; i < count; i++) {
     const conf = document.createElement("div");
     conf.className = "confetti";
     conf.innerText = emojis[Math.floor(Math.random() * emojis.length)];
 
-    // Start position (bottom corners)
     conf.style.position = "fixed";
     conf.style.left = side === "left" ? "16px" : "calc(100vw - 40px)";
     conf.style.bottom = "16px";
     conf.style.fontSize = isFinal ? "1.6rem" : "1.2rem";
     conf.style.zIndex = "9999";
 
-    // Movement
     const x = side === "left"
       ? Math.random() * 220 + 60
       : -(Math.random() * 220 + 60);
@@ -76,7 +96,6 @@ function createBlast(side, emojis, count, isFinal) {
     );
 
     document.body.appendChild(conf);
-
     setTimeout(() => conf.remove(), isFinal ? 1900 : 1500);
   }
 }
