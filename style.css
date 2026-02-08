@@ -100,3 +100,37 @@ button:hover {
     text-shadow: 0 0 4px #fde68a;
   }
 }
+/* ❌ Wrong answer shake */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.3s;
+}
+
+/* 🔴 Wrong button pulse */
+@keyframes wrongPulse {
+  0% { background-color: #fde68a; }
+  50% { background-color: #fca5a5; }
+  100% { background-color: #fde68a; }
+}
+
+.wrong-btn {
+  animation: wrongPulse 0.3s;
+}
+
+/* 🟢 Correct button pulse */
+@keyframes correctPulse {
+  0% { background-color: #fde68a; }
+  50% { background-color: #86efac; }
+  100% { background-color: #fde68a; }
+}
+
+.correct-btn {
+  animation: correctPulse 0.3s;
+}
