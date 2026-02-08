@@ -134,3 +134,21 @@ button:hover {
 .correct-btn {
   animation: correctPulse 0.3s;
 }
+
+/* 💗 Photo frame on result page */
+.photo-frame {
+  margin: 18px auto 24px;
+  padding: 10px;
+  border-radius: 20px;
+  background: #fbcfe8; /* pastel pink */
+  width: fit-content;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.photo-frame img {
+  display: block;
+  max-width: 100%;
+  width: 260px;
+  border-radius: 14px;
+}
+
